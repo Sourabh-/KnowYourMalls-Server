@@ -1,0 +1,16 @@
+{
+  "name": "knowyourmalls",
+  "version": "0.0.1",
+  "description": "List of all the shops across all the malls in your city",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sourabh Debnath",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pg": "^7.4.1"
+  }
+}

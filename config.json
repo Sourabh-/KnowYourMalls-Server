@@ -1,0 +1,8 @@
+{
+	"postgres": {
+		"host": "localhost",
+		"user": "postgres",
+		"pass": "root",
+		"database": "KnowYourMalls"
+	}
+}
