@@ -30,9 +30,9 @@ router.get("/v1/search/:cityId", (req, res) => {
 	db.connect(req.app.pool)
 	.then(async (client) => {
 		let tags = req.query.tags.split(",");
-		let likeQuery = ` LOWER(tags) LIKE LOWER('%${tags[0]}%')`;
+		let likeQuery = ` LOWER(tags) LIKE LOWER('%${tags[0]}%') OR LOWER("store") LIKE LOWER('%${tags[0]}%') `;
 		for(let i=1; i<tags.length; i++) {
-			likeQuery += ` OR LOWER(tags) LIKE LOWER('%${tags[0]}%') `;
+			likeQuery += ` OR LOWER(tags) LIKE LOWER('%${tags[i]}%') OR LOWER("store") LIKE LOWER('%${tags[i]}%') `;
 		}
 
 		let result = await client.query(`SELECT * FROM stores WHERE ${likeQuery} AND "mallId" IN (SELECT "mallId" FROM malls WHERE "cityId"='${req.params.cityId}')`);
